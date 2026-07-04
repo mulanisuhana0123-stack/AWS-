@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Integration Overview</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    /* CHANGED TO DARK BLUE BELOW */
+    background:#0f172a;
+    padding:10px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:70% 30%;
+    gap:10px;
+}
+
+.panel{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.title{
+    background:#041b7a;
+    color:#fff;
+    text-align:center;
+    padding:10px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.green-title{
+    background:#0b7d3b;
+}
+
+.purple-title{
+    background:#6f00d6;
+}
+
+.content{
+    padding:20px;
+}
+
+.main-heading{
+    text-align:center;
+    color:#041b7a;
+    margin-bottom:30px;
+}
+
+/* Architecture */
+
+.architecture{
+    padding:10px;
+}
+
+.top-boxes{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+.acc-box{
+    width:220px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:15px;
+    background:#fafafa;
+    text-align:center;
+}
+
+.acc-box h4{
+    color:#041b7a;
+    margin-bottom:10px;
+}
+
+.acc-box ul{
+    list-style:none;
+}
+
+.acc-box li{
+    padding:5px 0;
+}
+
+.arrow{
+    font-size:45px;
+    font-weight:bold;
+}
+
+.down-arrow{
+    text-align:center;
+    font-size:40px;
+    margin:20px 0;
+}
+
+.ou-title{
+    text-align:center;
+    color:#041b7a;
+    margin-bottom:15px;
+}
+
+.ou-wrapper{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.ou{
+    background:#efe7ff;
+    border:1px solid #d4c4ff;
+    padding:12px 30px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.accounts{
+    display:flex;
+    justify-content:space-around;
+    margin-top:30px;
+}
+
+.workload{
+    width:180px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    padding:15px;
+    text-align:center;
+}
+
+/* Status */
+
+.status-title{
+    text-align:center;
+    color:#041b7a;
+    margin:25px 0 15px;
+}
+
+.status-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+}
+
+.status-card{
+    border:1px solid #ddd;
+    border-radius:8px;
+    text-align:center;
+    padding:15px;
+}
+
+.status-card h2{
+    color:green;
+    margin:10px 0;
+}
+
+/* Testing */
+
+.test-section{
+    margin-top:10px;
+}
+
+.test-content{
+    display:grid;
+    grid-template-columns:25% 45% 30%;
+    padding:20px;
+}
+
+.circle{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:
+    conic-gradient(
+    green 0deg 327deg,
+    red 327deg 342deg,
+    #999 342deg 360deg);
+    margin:auto;
+    position:relative;
+}
+
+.circle:before{
+    content:"";
+    width:70px;
+    height:70px;
+    background:#fff;
+    border-radius:50%;
+    position:absolute;
+    top:25px;
+    left:25px;
+}
+
+.result{
+    text-align:center;
+}
+
+.result h1{
+    color:#041b7a;
+    font-size:55px;
+}
+
+.ready{
+    margin-top:20px;
+    background:#e7f6e7;
+    padding:12px;
+    color:green;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+/* Validation */
+
+.validation-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:10px;
+    padding:15px;
+}
+
+.validation-card{
+    border:1px solid #ddd;
+    border-radius:6px;
+    text-align:center;
+    padding:15px;
+}
+
+/* Sidebar */
+
+.sidebar ul{
+    list-style:none;
+    padding:15px;
+}
+
+.sidebar li{
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.project-info{
+    padding:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:8px;
+    text-align:center;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div>
+
+<div class="panel">
+
+<div class="title">
+ OUTPUT REPORT 
+</div>
+
+<div class="content">
+
+<h2 class="main-heading">
+AWS CONTROL TOWER MULTI-ACCOUNT ARCHITECTURE WITH INTELLIGENT GOVERNANCE
+</h2>
+
+<div class="architecture">
+
+<div class="top-boxes">
+
+<div class="acc-box">
+<h4>Management Account (Root)</h4>
+<ul>
+<li>AWS Control Tower</li>
+<li>Guardrails</li>
+<li>Account Factory</li>
+</ul>
+</div>
+
+<div class="arrow">→</div>
+
+<div class="acc-box">
+<h4>Audit Account</h4>
+<ul>
+<li>CloudTrail</li>
+<li>Config Aggregator</li>
+<li>Security Audit</li>
+</ul>
+</div>
+
+<div class="arrow">→</div>
+
+<div class="acc-box">
+<h4>Log Archive Account</h4>
+<ul>
+<li>Centralized Logs</li>
+<li>S3 Log Archive</li>
+<li>Retention Policies</li>
+</ul>
+</div>
+
+</div>
+
+<div class="down-arrow">↓</div>
+
+<h3 class="ou-title">
+Organizational Units (OUs)
+</h3>
+
+<div class="ou-wrapper">
+<div class="ou">Security OU</div>
+<div class="ou">Infrastructure OU</div>
+<div class="ou">Sandbox OU</div>
+</div>
+
+<div class="down-arrow">↓</div>
+
+<div class="accounts">
+
+<div class="workload">
+<h4>Dev Account</h4>
+<p>(Workload)</p>
+</div>
+
+<div class="workload">
+<h4>Test Account</h4>
+<p>(Workload)</p>
+</div>
+
+<div class="workload">
+<h4>Prod Account</h4>
+<p>(Workload)</p>
+</div>
+
+<div class="workload">
+<h4>Shared Services</h4>
+<p>(Account)</p>
+</div>
+
+</div>
+
+</div>
+
+<h3 class="status-title">
+INTEGRATION STATUS
+</h3>
+
+<div class="status-grid">
+
+<div class="status-card">
+Accounts Integrated
+<h2>6/6</h2>
+100%
+</div>
+
+<div class="status-card">
+OUs Configured
+<h2>3/3</h2>
+100%
+</div>
+
+<div class="status-card">
+Guardrails Applied
+<h2>100%</h2>
+Success
+</div>
+
+<div class="status-card">
+Cross-Account Access Tested
+<h2>100%</h2>
+Success
+</div>
+
+<div class="status-card">
+Logging & Monitoring
+<h2>100%</h2>
+Success
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="panel test-section">
+
+<div class="title purple-title">
+END-TO-END TESTING SUMMARY
+</div>
+
+<div class="test-content">
+
+<div>
+<h4>TEST CASE EXECUTION</h4>
+<br>
+<div class="circle"></div>
+</div>
+
+<div>
+
+<table>
+
+<tr>
+<th>Category</th>
+<th>Cases</th>
+<th>Passed</th>
+<th>Failed</th>
+</tr>
+
+<tr>
+<td>Functional</td>
+<td>15</td>
+<td>14</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>Security</td>
+<td>12</td>
+<td>11</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>Compliance</td>
+<td>8</td>
+<td>8</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>User Access</td>
+<td>9</td>
+<td>9</td>
+<td>0</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="result">
+
+<h1>91%</h1>
+<h3>Tests Passed</h3>
+
+<div class="ready">
+Project is Ready for Delivery
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="panel" style="margin-top:10px;">
+
+<div class="title purple-title">
+VALIDATION SUMMARY
+</div>
+
+<div class="validation-grid">
+
+<div class="validation-card">
+Guardrails Compliance<br><br>✔ Passed
+</div>
+
+<div class="validation-card">
+Security Compliance<br><br>✔ Passed
+</div>
+
+<div class="validation-card">
+Logging Validation<br><br>✔ Passed
+</div>
+
+<div class="validation-card">
+Cost Validation<br><br>✔ Passed
+</div>
+
+<div class="validation-card">
+Backup & DR<br><br>✔ Passed
+</div>
+
+<div class="validation-card">
+Performance Validation<br><br>✔ Passed
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="sidebar">
+
+<div class="panel">
+<div class="title green-title">
+RESULTS & ACHIEVEMENTS
+</div>
+
+<ul>
+<li>100% Integration Completed</li>
+<li>91% Test Cases Passed</li>
+<li>100% Guardrails Compliance</li>
+<li>Centralized Logging Active</li>
+<li>Cost Optimization Enabled</li>
+<li>Project Delivery Successful</li>
+</ul>
+
+</div>
+
+<div class="panel" style="margin-top:10px;">
+<div class="title purple-title">
+DELIVERABLES
+</div>
+
+<ul>
+<li>Integrated Multi-Account AWS Landing Zone</li>
+<li>Guardrails & Security Policies Enforced</li>
+<li>Centralized Logging & Monitoring</li>
+<li>Compliance & Cost Optimization</li>
+<li>End-to-End Testing Report</li>
+<li>Project Documentation & User Guide</li>
+<li>Final Presentation & Handover</li>
+</ul>
+
+</div>
+
+<div class="panel" style="margin-top:10px;">
+
+<div class="title" style="background:#dce3f0;color:#041b7a;">
+PROJECT INFORMATION
+</div>
+
+<div class="project-info">
+<b>Project Name:</b><br><br>
+
+AWS Control Tower Multi-Account Architecture with Intelligent Governance
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
